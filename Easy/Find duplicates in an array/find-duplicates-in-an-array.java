@@ -25,21 +25,30 @@ class GFG {
 class Solution {
     public static ArrayList<Integer> duplicates(int arr[], int n) {
         // code here
-         ArrayList<Integer> ans=new ArrayList<>();
-        int max=arr[0];
-        for(int i=0;i<n;i++) {
-            max=Math.max(max,arr[i]);
-        }
-        int[] dup=new int[max+1];
-        for(int i=0;i<n;i++) {
-            if(++dup[arr[i]] == 2) {
-                ans.add(arr[i]);
+        ArrayList<Integer> list = new ArrayList<>();
+        HashMap<Integer,Integer> hmap = new HashMap<>();
+        
+        for(int i:arr){
+            if(hmap.containsKey(i)){
+                hmap.put(i,hmap.get(i)+1);
+            }
+            else{
+                hmap.put(i,1);
             }
         }
-        Collections.sort(ans);
-        if(ans.size()==0) {
-            ans.add(-1);
+        
+        for(int i:hmap.keySet()){
+            if(hmap.get(i)>1){
+                list.add(i);
+            }
         }
-        return ans;
+        Collections.sort(list);
+        
+        if(list.isEmpty()){
+            list.add(-1);
+            return list;
+        }
+        
+        return list;
     }
 }
