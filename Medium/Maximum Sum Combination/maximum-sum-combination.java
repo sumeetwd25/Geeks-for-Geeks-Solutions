@@ -42,9 +42,8 @@ class Solution {
         Arrays.sort(A);
         Arrays.sort(B);
         PriorityQueue<Integer> pq=new PriorityQueue<>();
-        int a=N-1,b=N-1;
-       
-       
+
+        
         for(int j=N-1;j>N-K-1;j--)
         {
            for(int k=N-1;k>N-K-1;k--)
