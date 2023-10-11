@@ -123,15 +123,12 @@ class Solution {
     //Function to find the height of a binary tree.
     int height(Node node) 
     {
-        // code here 
-        if(node==null){
-            return 0;
-        }
+        // code here
+        if(node==null) return 0;
         
-        int leftHeight = height(node.left);
-        int rightHeight = height(node.right);
+        int leftHt = height(node.left);
+        int rightHt = height(node.right);
         
-        return Math.max(leftHeight, rightHeight)+1;
+        return Math.max(leftHt, rightHt)+1;
     }
-    
 }
